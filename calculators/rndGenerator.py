@@ -7,7 +7,7 @@ class rndGenerator:
             seed = datetime.now().microsecond
         self.seed = seed
         self.steps = None
-        self.generated = None
+        self.numbers = None
 
     def linearCongruential(self, n, a=8404997, b = 1, M = 2**35):
         x = [self.seed]
@@ -18,4 +18,4 @@ class rndGenerator:
             x.append((a * x[i] + b) % M)
 
         self.steps = np.array(x[1:])
-        self.generated = self.steps / M
+        self.numbers = self.steps / M
